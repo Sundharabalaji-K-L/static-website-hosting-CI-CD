@@ -392,7 +392,7 @@ module "secrets-manager-pat-token" {
   secret_string = var.tf_token       // secret value need to be stored
   tags = {
     "jenkins:credentials:type"     = "usernamePassword"
-    "jenkins:credentials:username" = "sundharabalaji@1cloudhub.com"
+    "jenkins:credentials:username" = "sundharabalajikl@gmail.com"
   }
 }
 
@@ -407,24 +407,24 @@ module "secrets-manager-gmail" {
   }
 }
 ################################################# Github Resource #################################################
-resource "github_repository_file" "output_json" {
-  repository = "Infra-repo"  // repositoy name 
-  branch     = "main"        // branch name
-  file       = "output.json" // name for the file  that has to be created in the repository
-  content    = <<-EOT
-    {
-      "bucket_names": ${jsonencode(module.s3-bucket.bucket_names)},
-      "cloudfront_id": "${module.cloudfront.cloudfront_id}"
-    }
-  EOT
+# resource "github_repository_file" "output_json" {
+#   repository = "Infra-repo"  // repositoy name 
+#   branch     = "main"        // branch name
+#   file       = "output.json" // name for the file  that has to be created in the repository
+#   content    = <<-EOT
+#     {
+#       "bucket_names": ${jsonencode(module.s3-bucket.bucket_names)},
+#       "cloudfront_id": "${module.cloudfront.cloudfront_id}"
+#     }
+#   EOT
 
-  commit_message      = "Update output.json"           // commit message for the commit
-  commit_author       = "Terraform User"               // commit author of the commit
-  commit_email        = "sundharabalaji@1cloudhub.com" // commit email of the commit
-  overwrite_on_create = true
+#   commit_message      = "Update output.json"           // commit message for the commit
+#   commit_author       = "Terraform User"               // commit author of the commit
+#   commit_email        = "sundharabalaji@1cloudhub.com" // commit email of the commit
+#   overwrite_on_create = true
 
-  depends_on = [
-    module.cloudfront,
-    module.s3-bucket
-  ]
-}
+#   depends_on = [
+#     module.cloudfront,
+#     module.s3-bucket
+#   ]
+# }

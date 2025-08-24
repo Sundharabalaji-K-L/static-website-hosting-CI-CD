@@ -1,5 +1,5 @@
-bucket         = "terraform-up-and-running-state-website-hosting"
+bucket         = "react-deployment-terraform-backend"
 key            = "terraform.tfstate"
-region         = "us-east-1"
-dynamodb_table = "terraform-up-and-running-lock"
+region         = "eu-north-1"
+dynamodb_table = "react-deployment-terraform-lock"
 
